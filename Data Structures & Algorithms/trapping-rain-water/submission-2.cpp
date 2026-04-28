@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int i=0, j = height.size()-1;
+        int leftMax = height[i], rightMax = height[j];
+        int res = 0;
+        while(i<j){
+            if(leftMax < rightMax){
+                i++;
+                leftMax = max(leftMax, height[i]);
+                res += leftMax - height[i];
+            }else {
+                j--;
+                rightMax = max(rightMax, height[j]);
+                res += rightMax - height[j];
+            }
+        }
+        return res;
+    }
+};

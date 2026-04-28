@@ -1,0 +1,12 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        vector<int> freq(26,0);//sc o(1)  tc = o(n)
+        for(auto c : s) freq[c-'a']++;
+        for(auto c : t) freq[c-'a']--;
+        for(int num: freq){
+            if(num != 0) return false;
+        }
+        return true;
+    }
+};
